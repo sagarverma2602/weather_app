@@ -1,10 +1,8 @@
-
-
 import {  useState } from 'react'
+import Wapi from "../api.config"
 import './App.css'
 import search from './assets/icon/search.png'
 function App() {
-  let api_key='7e98897f3ab4649f9a22086624988a76'
   const [city,setCity]=useState('Search')
   const [temp,setTemp]=useState('0°c')
   const [humidity,setHumidty]=useState('0%')
@@ -14,7 +12,7 @@ function App() {
     if (searchCity===''){
       return 0;
     }
-    let url=`https://api.openweathermap.org/data/2.5/weather?q=${searchCity}&appid=${api_key}&units=metric`
+    let url=`https://api.openweathermap.org/data/2.5/weather?q=${searchCity}&appid=${Wapi}&units=metric`
     const res= await fetch(url)
     const data=await res.json()
     if (data.cod==404){
