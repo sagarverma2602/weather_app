@@ -7,11 +7,12 @@ function App() {
   const [humidity,setHumidty]=useState('0%')
   const [wind,setWind]=useState('0 km/h')
   const [searchCity,setSearchCity]=useState('')
+  const API=import.meta.env.VITE_WAPI
   const clickHandle=async ()=>{
     if (searchCity===''){
       return 0;
     }
-    let url=`https://api.openweathermap.org/data/2.5/weather?q=${searchCity}&appid=${import.meta.env.VITE_WAPI}&units=metric`
+    let url=`https://api.openweathermap.org/data/2.5/weather?q=${searchCity}&appid=${API}&units=metric`
     const res= await fetch(url)
     const data=await res.json()
     if (data.cod==404){
