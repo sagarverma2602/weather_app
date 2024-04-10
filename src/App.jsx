@@ -8,7 +8,6 @@ function App() {
   const [wind,setWind]=useState('0 km/h')
   const [searchCity,setSearchCity]=useState('')
   const clickHandle=async ()=>{
-    console.log('here',process.env.VITE_WAPI)
     if (searchCity===''){
       return 0;
     }
